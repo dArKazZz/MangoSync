@@ -1,4 +1,4 @@
-import { getProductById } from "@/lib/data";
+import { readDb } from "@/lib/db";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Image from "next/image";
@@ -10,72 +10,69 @@ interface Params {
 }
 
 /**
- * The product page component
- * @param {Params} params The route params
- * @returns {JSX.Element} The component
+ * Componente de la página de detalles del producto.
  */
 export default async function SingleProductPage({
   params,
 }: {
-  params: Params;
+  params: Promise<Params>;
 }) {
   const { id } = await params;
 
-  const product = getProductById(id);
+  // Leer directamente de la base de datos local en el servidor
+  const db = readDb();
+  const product = db.products.find((p) => p.id === id);
 
-  // If there is no product with the given id, return a 404
   if (!product) return notFound();
 
   return (
     <>
-      {/* The navbar component */}
       <Navbar />
 
-      {/* The main content */}
-      <div className="bg-gray-100 min-h-screen py-12">
+      <div className="bg-slate-50 min-h-screen py-12">
         <div className="container mx-auto px-4 py-4 md:py-6 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* The product image */}
-            <div className="relative aspect-square w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-slate-100">
+            
+            {/* Imagen del Producto */}
+            <div className="relative aspect-square w-full rounded-2xl overflow-hidden border border-slate-100 bg-slate-50">
               <Image
                 src={product.image || "/placeholder/400x400.svg"}
                 alt={product.name}
-                layout="fill"
-                className="object-cover rounded-lg shadow-lg"
+                fill
+                className="object-cover"
               />
             </div>
 
-            {/* The product details */}
-            <div className="flex flex-col space-y-4 justify-center">
-              {/* The product name */}
-              <h1 className="text-3xl font-bold text-gray-800">
-                {product.name}
-              </h1>
-
-              {/* The product category */}
-              <p className="text-sm text-gray-500">{product.category}</p>
-
-              {/* The product price */}
-              <p className="text-xl text-gray-800 font-semibold">
-                ${product.price.toFixed(2)}
-              </p>
-
-              {/* The product description */}
+            {/* Detalles del Producto */}
+            <div className="flex flex-col space-y-6 justify-center">
               <div>
-                <h3 className="text-lg font-medium text-gray-800">
-                  Description
-                </h3>
-                <p className="text-gray-600 mt-2">{product.description}</p>
+                <span className="inline-block px-2.5 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-600 uppercase tracking-wider mb-2">
+                  {product.category}
+                </span>
+                <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">
+                  {product.name}
+                </h1>
               </div>
 
-              {/* The add to cart button */}
-              <AddToCartButton product={product} />
+              <p className="text-2xl text-slate-900 font-extrabold">
+                S/. {product.price.toFixed(2)}
+              </p>
+
+              <div className="border-t border-slate-100 pt-6">
+                <h3 className="text-base font-bold text-slate-800 uppercase tracking-wide">
+                  Descripción
+                </h3>
+                <p className="text-slate-600 mt-2 text-sm leading-relaxed">{product.description}</p>
+              </div>
+
+              <div className="pt-4">
+                <AddToCartButton product={product} className="w-full sm:w-auto px-10 py-6" />
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* The footer component */}
       <Footer />
     </>
   );

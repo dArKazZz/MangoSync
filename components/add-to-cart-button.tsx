@@ -11,25 +11,19 @@ interface ProductCartProps {
 }
 
 /**
- * Component for the "Add To Cart" button.
- *
- * @param product - The product to add to the cart.
- * @param className - Additional classes for styling the button.
+ * Component for the "Agregar al carrito" button.
  */
 export default function AddToCartButton({ product, className }: ProductCartProps) {
   const { addToCart } = useCart();
 
-  /**
-   * Handles the click event to add the product to the cart.
-   */
   const handleAddToCart = () => {
     addToCart(product);
   };
 
   return (
-    <Button onClick={handleAddToCart} className={className}>
-      <ShoppingCart className="mr-2" />
-      Add To Cart
+    <Button onClick={handleAddToCart} className={`bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl px-6 py-5 ${className}`}>
+      <ShoppingCart className="mr-2 h-5 w-5" />
+      Agregar al carrito
     </Button>
   );
 }

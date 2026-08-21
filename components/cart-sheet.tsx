@@ -10,25 +10,10 @@ import {
 import Link from "next/link";
 import { ScrollArea } from "./ui/scroll-area";
 import Image from "next/image";
-import { Separator } from "./ui/separator";
 import { useCart } from "@/hooks/use-cart";
 
 /**
- * The `CartSheet` component is a sheet that can be opened with a trigger button
- * and contains a list of items in the cart. It also displays the subtotal of
- * the items and provides a link to checkout.
- *
- * When the cart is empty, it displays a message and a button to continue shopping.
- *
- * When the cart is not empty, it displays a list of items with their names,
- * prices and a button to remove them from the cart. It also displays the subtotal
- * of the items and provides a link to checkout.
- *
- * The `CartSheet` component is connected to the `useCart` hook, which provides
- * the items in the cart and functions to remove items and clear the cart.
- *
- * The `CartSheet` component is a higher-order component, which means it wraps
- * the provided `children` with a `Sheet` component.
+ * Componente del Carrito Lateral (CartSheet).
  */
 export default function CartSheet() {
   const { items, removeFromCart, clearCart } = useCart();
@@ -46,34 +31,34 @@ export default function CartSheet() {
               {totalItems}
             </span>
           )}
-          <span className="sr-only">Open cart</span>
+          <span className="sr-only">Abrir carrito</span>
         </Button>
       </SheetTrigger>
       <SheetContent className="w-full sm:max-w-md">
         <SheetHeader>
-          <SheetTitle>Shopping Cart ({totalItems})</SheetTitle>
+          <SheetTitle>Carrito de Compras ({totalItems})</SheetTitle>
         </SheetHeader>
 
         {totalItems === 0 ? (
           <div className="flex flex-col items-center justify-center h-full space-y-4">
             <ShoppingBag className="h-12 w-12 text-muted-foreground" />
             <div className="text-center">
-              <h3 className="text-lg font-medium">Your cart is empty</h3>
+              <h3 className="text-lg font-medium">Tu carrito está vacío</h3>
               <p className="text-sm text-muted-foreground mt-1">
-                Add some products to your cart to see them here.
+                Agrega algunos productos de mango para verlos aquí.
               </p>
             </div>
             <Button asChild>
-              <Link href="/products">Continue Shopping</Link>
+              <Link href="/products">Ver Productos</Link>
             </Button>
           </div>
         ) : (
-          <>
-            <ScrollArea className="h-[65vh]">
-              <div className="space-y-4 px-8">
+          <div className="flex flex-col h-[calc(100vh-80px)] justify-between">
+            <ScrollArea className="flex-1 pr-4 mt-4">
+              <div className="space-y-4">
                 {items.map((item, index) => (
-                  <div key={index} className="flex items-center space-x-4">
-                    <div className="relative h-16 w-16 overflow-hidden rounded">
+                  <div key={index} className="flex items-center space-x-4 border-b border-slate-100 pb-3">
+                    <div className="relative h-16 w-16 overflow-hidden rounded-lg bg-slate-100">
                       <Image
                         src={item.image}
                         alt={item.name}
@@ -82,40 +67,39 @@ export default function CartSheet() {
                       />
                     </div>
                     <div className="flex-1 space-y-1">
-                      <h4 className="font-medium">{item.name}</h4>
-                      <p className="text-sm text-muted-foreground">
-                        {item.price}
+                      <h4 className="font-semibold text-slate-800 text-sm leading-tight">{item.name}</h4>
+                      <p className="text-sm text-slate-500 font-medium">
+                        S/. {item.price.toFixed(2)}
                       </p>
                     </div>
-                    <Button onClick={() => removeFromCart(item.id)} variant="ghost" size="icon">
+                    <Button onClick={() => removeFromCart(item.id)} variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-slate-600">
                       <X className="h-4 w-4" />
-                      <span className="sr-only">Remove</span>
+                      <span className="sr-only">Eliminar</span>
                     </Button>
                   </div>
                 ))}
               </div>
             </ScrollArea>
 
-            {/* Total */}
-            <Separator />
-            <div className="space-y-4 mt-4 px-8">
+            {/* Total y Acciones */}
+            <div className="space-y-4 pt-4 border-t">
               <div className="flex items-center justify-between">
-                <span className="font-medium">Subtotal</span>
-                <span className="font-medium">{Math.round(subtotal * 100) / 100}</span>
+                <span className="font-semibold text-slate-700">Subtotal</span>
+                <span className="font-bold text-lg text-slate-900">S/. {subtotal.toFixed(2)}</span>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Shipping and taxes calculated at checkout.
+              <p className="text-xs text-slate-400">
+                Los costos de envío e impuestos se calculan al proceder al pago.
               </p>
               <div className="space-y-2">
-                <Button asChild className="w-full">
-                  <Link href="/checkout">Checkout</Link>
+                <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-5 rounded-xl">
+                  <Link href="/checkout">Proceder al Pago</Link>
                 </Button>
-                <Button variant="outline" className="w-full" onClick={() => clearCart()}>
-                  Clear Cart
+                <Button variant="outline" className="w-full text-slate-500 rounded-xl" onClick={() => clearCart()}>
+                  Vaciar Carrito
                 </Button>
               </div>
             </div>
-          </>
+          </div>
         )}
       </SheetContent>
     </Sheet>

@@ -1,21 +1,18 @@
-
 /**
- * Footer component.
+ * Componente del Pie de Página (Footer).
  *
- * This component renders the footer of the application.
+ * Rinde el pie de página de la aplicación.
  * 
  * @returns {JSX.Element}
  */
 function Footer() {
   return (
     <footer className="border-t py-6">
-      {/* Footer text */}
       <p className="text-center text-sm leading-loose text-muted-foreground">
-        {/* Copyright symbol */}
-        &copy; 2025 Store. All rights reserved.
+        &copy; 2026 MangoSync. Todos los derechos reservados.
       </p>
     </footer>
   );
-};
+}
 
 export default Footer;

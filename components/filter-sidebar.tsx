@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/accordion";
 import { Category } from "@/lib/types";
 
-
 interface FilterSidebarProps {
   categories: Category[];
   selectedCategories: string[];
@@ -26,20 +25,7 @@ interface FilterSidebarProps {
 }
 
 /**
- * The FilterSidebar component displays a list of categories and a price range
- * filter. The component also has a "Clear All Filters" button and a "Price Range"
- * toggle.
- *
- * @param categories - An array of categories to display.
- * @param selectedCategories - An array of selected categories.
- * @param priceRange - The currently selected price range.
- * @param minPrice - The minimum price of the price range.
- * @param maxPrice - The maximum price of the price range.
- * @param onCategoryChange - A function to call when a category is checked or
- * unchecked.
- * @param onPriceChange - A function to call when the price range is changed.
- * @param onClearFilters - A function to call when the "Clear All Filters" button
- * is clicked.
+ * El componente FilterSidebar muestra una lista de categorías y un filtro de rango de precios.
  */
 function FilterSidebar({
   categories,
@@ -52,16 +38,16 @@ function FilterSidebar({
   onClearFilters,
 }: FilterSidebarProps) {
   return (
-    <div className="space-y-6">
-      <div>
-        <h3 className="text-lg font-medium mb-4">Filters</h3>
+    <div className="space-y-6 bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+      <div className="space-y-3">
+        <h3 className="text-lg font-bold text-slate-800">Filtros</h3>
         <Button
           variant="outline"
           size="sm"
           onClick={onClearFilters}
-          className="w-full"
+          className="w-full text-slate-500 rounded-xl"
         >
-          Clear All Filters
+          Limpiar Todos los Filtros
         </Button>
       </div>
 
@@ -73,19 +59,20 @@ function FilterSidebar({
         className="w-full"
       >
         <AccordionItem value="categories">
-          <AccordionTrigger>Categories</AccordionTrigger>
+          <AccordionTrigger className="font-bold text-slate-700">Categorías</AccordionTrigger>
           <AccordionContent>
-            <div className="space-y-3">
+            <div className="space-y-3 pt-2">
               {categories.map((category) => (
-                <div key={category.id} className="flex items-center space-x-2">
+                <div key={category.id} className="flex items-center space-x-2.5">
                   <Checkbox
                     id={`category-${category.id}`}
                     checked={selectedCategories.includes(category.name)}
                     onCheckedChange={() => onCategoryChange(category.name)}
+                    className="border-slate-300 data-[state=checked]:bg-emerald-600 data-[state=checked]:border-emerald-600 rounded-sm"
                   />
                   <Label
                     htmlFor={`category-${category.id}`}
-                    className="text-sm font-normal cursor-pointer"
+                    className="text-sm font-medium text-slate-600 cursor-pointer"
                   >
                     {category.name}
                   </Label>
@@ -96,9 +83,9 @@ function FilterSidebar({
         </AccordionItem>
 
         <AccordionItem value="price">
-          <AccordionTrigger>Price Range</AccordionTrigger>
+          <AccordionTrigger className="font-bold text-slate-700">Rango de Precios</AccordionTrigger>
           <AccordionContent>
-            <div className="space-y-4">
+            <div className="space-y-4 pt-2">
               <Slider
                 defaultValue={[minPrice, maxPrice]}
                 min={minPrice}
@@ -110,12 +97,13 @@ function FilterSidebar({
                 }
                 className="mt-6"
               />
-              <div className="flex items-center justify-between">
-                <div className="border rounded-md px-2 py-1 w-20">
-                  ${priceRange[0]}
+              <div className="flex items-center justify-between gap-4">
+                <div className="border border-slate-100 rounded-xl px-3 py-1.5 w-24 text-center font-bold text-slate-700 text-sm">
+                  S/. {priceRange[0]}
                 </div>
-                <div className="border rounded-md px-2 py-1 w-20 text-right">
-                  ${priceRange[1]}
+                <span className="text-slate-400 font-semibold text-sm">a</span>
+                <div className="border border-slate-100 rounded-xl px-3 py-1.5 w-24 text-center font-bold text-slate-700 text-sm">
+                  S/. {priceRange[1]}
                 </div>
               </div>
             </div>

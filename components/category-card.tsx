@@ -16,7 +16,7 @@ interface CategoryCardProps {
  */
 function CategoryCard({ category }: CategoryCardProps) {
   return (
-    <Link href={`categories/${category.slug}`}>
+    <Link href={`/categories/${category.slug}`}>
       <Card className="overflow-hidden transition-all hover:shadow-md py-0 gap-0">
         <div className="aspect-square relative">
           <Image
