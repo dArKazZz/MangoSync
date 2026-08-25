@@ -45,7 +45,6 @@ export default function Navbar() {
     { href: "/", label: "Inicio" },
     { href: "/products", label: "Productos" },
     { href: "/categories", label: "Categorías" },
-    { href: "/simulador", label: "Simulador de Innovación" },
     { href: "/noticias", label: "Noticias" },
     { href: "/foro", label: "Foro Comunitario" },
   ];
