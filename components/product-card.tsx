@@ -5,7 +5,7 @@ import { Card, CardContent, CardFooter } from "./ui/card";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { useCart } from "@/hooks/use-cart";
-import { Product } from "@/lib/types";
+import { Product, producerNames } from "@/lib/types";
 import { ShoppingCart } from "lucide-react";
 
 interface ProductCardProps {
@@ -40,8 +40,18 @@ function ProductCard({ product }: ProductCardProps) {
         <Link href={`/products/${product.id}`}>
           <h3 className="font-semibold mt-2 text-slate-800 text-base hover:text-amber-600 transition-colors leading-tight">{product.name}</h3>
         </Link>
-        {/* Categoría */}
-        <p className="text-xs text-slate-400 mt-1">{product.category}</p>
+        {/* Categoría y Vendedor */}
+        <div className="flex justify-between items-center mt-1">
+          <p className="text-xs text-slate-400">{product.category}</p>
+          {product.producerId && (
+            <Link 
+              href={`/productores/${product.producerId}`}
+              className="text-[10px] text-emerald-700 hover:text-emerald-800 font-bold hover:underline"
+            >
+              {producerNames[product.producerId] || "Vendedor"}
+            </Link>
+          )}
+        </div>
         {/* Precio */}
         <p className="font-bold text-lg mt-2 text-slate-900">S/. {product.price.toFixed(2)}</p>
       </CardContent>

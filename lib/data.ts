@@ -1,4 +1,4 @@
-import { Product, Category } from "./types";
+import { Product, Category, Producer } from "./types";
 
 /**
  * Retrieves all products asynchronously from the API route.
@@ -29,4 +29,25 @@ export async function getAllCategories(): Promise<Category[]> {
   if (!res.ok) throw new Error("Failed to fetch categories");
   const data = await res.json();
   return data.categories;
+}
+
+/**
+ * Retrieves all producers from the API.
+ * @returns {Promise<Producer[]>} An array of all producer objects.
+ */
+export async function getAllProducers(): Promise<Producer[]> {
+  const res = await fetch("/api/producers", { cache: "no-store" });
+  if (!res.ok) throw new Error("Failed to fetch producers");
+  const data = await res.json();
+  return data.producers;
+}
+
+/**
+ * Retrieves a single producer by ID.
+ * @param {string} id The producer's unique ID.
+ * @returns {Promise<Producer | undefined>} The producer object, or undefined if not found.
+ */
+export async function getProducerById(id: string): Promise<Producer | undefined> {
+  const producers = await getAllProducers();
+  return producers.find(p => p.id === id);
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Categories from "@/components/categories";
-import FeaturedProducts from "@/components/featured-products";
+import FeaturedProducers from "@/components/featured-producers";
 import Footer from "@/components/footer";
 import HeroSection from "@/components/hero-section";
 import Navbar from "@/components/navbar";
@@ -13,7 +13,7 @@ function Home() {
       <Navbar />
       <HeroSection />
       <Categories />
-      <FeaturedProducts />
+      <FeaturedProducers />
       <NewsLetter />
       <Footer />
     </>

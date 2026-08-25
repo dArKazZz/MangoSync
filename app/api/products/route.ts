@@ -29,6 +29,7 @@ export async function POST(request: Request) {
       price: parseFloat(price),
       category,
       image: image || "/images/product_ataulfo_box.png",
+      producerId: body.producerId || "motupe-felipe",
     };
 
     db.products.push(newProduct);
