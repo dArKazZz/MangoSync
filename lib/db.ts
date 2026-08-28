@@ -177,7 +177,110 @@ const defaultCategories: Category[] = [
   },
 ];
 
-const defaultProducts: Product[] = [];
+const defaultProducts: Product[] = [
+  // --- FRUTA FRESCA (SOLO POR JABA, MANGO KENT, MÚLTIPLES PRODUCTORES) ---
+  {
+    id: "jaba-kent-felipe",
+    name: "Jaba de Mango Kent Premium (20 Kg)",
+    description: "Jaba plástica cosechera con 20 Kg de mango Kent seleccionado en Finca San José (Motupe). Fruta dulce, carnosa y sin fibra, perfecta para exportación.",
+    price: 99.90,
+    image: "/images/product_kent_box.jpg",
+    category: "Fruta Fresca",
+    producerId: "motupe-felipe"
+  },
+  {
+    id: "jaba-kent-olmos",
+    name: "Jaba de Mango Kent Premium (20 Kg)",
+    description: "Jaba cosechera de 20 Kg de mango Kent provisto por la Cooperativa Olmos. Fruto con excelente calibre comercial y bajo estricto control fitosanitario.",
+    price: 94.50,
+    image: "/images/product_kent_box.jpg",
+    category: "Fruta Fresca",
+    producerId: "olmos-coop"
+  },
+  {
+    id: "jaba-kent-jayanca",
+    name: "Jaba de Mango Kent Premium (20 Kg)",
+    description: "Jaba cosechera de 20 Kg de mango Kent de cultivo orgánico en Jayanca. Directo de chacra, fresco y seleccionado a mano.",
+    price: 89.90,
+    image: "/images/product_kent_box.jpg",
+    category: "Fruta Fresca",
+    producerId: "jayanca-organico"
+  },
+
+  // --- SUBPRODUCTOS (MÚLTIPLES PRODUCTORES) ---
+  {
+    id: "jam-felipe",
+    name: "Mermelada Artesanal de Mango Kent",
+    description: "Mermelada premium cocida a fuego lento con pulpa de mango Kent de Motupe, endulzada con panela orgánica. Sin colorantes.",
+    price: 19.90,
+    image: "/images/product_mango_jam.png",
+    category: "Mermeladas y Salsas",
+    producerId: "motupe-felipe"
+  },
+  {
+    id: "jam-jayanca",
+    name: "Mermelada Artesanal de Mango Kent",
+    description: "Mermelada orgánica elaborada artesanalmente en Jayanca. Sabor intenso a mango Kent fresco con un toque cítrico y bajo azúcar.",
+    price: 18.50,
+    image: "/images/product_mango_jam.png",
+    category: "Mermeladas y Salsas",
+    producerId: "jayanca-organico"
+  },
+  {
+    id: "dried-mango-jayanca",
+    name: "Mango Kent Deshidratado Premium",
+    description: "Tiras masticables de mango Kent deshidratado en horno solar en Jayanca. Snack 100% natural, alto en fibra y energía limpia.",
+    price: 24.90,
+    image: "/images/product_dried_mango.png",
+    category: "Snacks Deshidratados",
+    producerId: "jayanca-organico"
+  },
+  {
+    id: "dried-mango-olmos",
+    name: "Mango Kent Deshidratado Premium",
+    description: "Tiras de mango Kent deshidratado producidas por la Cooperativa Olmos. Sabor dulce concentrado, ideal para meriendas saludables.",
+    price: 22.50,
+    image: "/images/product_dried_mango.png",
+    category: "Snacks Deshidratados",
+    producerId: "olmos-coop"
+  },
+  {
+    id: "frozen-mango-olmos",
+    name: "Mango Kent Congelado en Cubos (IQF)",
+    description: "Bolsa de 5 Kg de cubos de mango Kent congelados mediante tecnología IQF en Olmos. Listos para repostería, smoothies y jugos.",
+    price: 65.00,
+    image: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4ff1?auto=format&fit=crop&q=80&w=600",
+    category: "Snacks Deshidratados",
+    producerId: "olmos-coop"
+  },
+  {
+    id: "body-butter-illimo",
+    name: "Mantequilla Corporal de Mango Kent",
+    description: "Mantequilla ultra-hidratante para el cuerpo elaborada en Íllimo con la manteca de la semilla del mango Kent. Nutrición natural.",
+    price: 59.90,
+    image: "/images/product_body_butter.png",
+    category: "Cuidado Personal",
+    producerId: "illimo-cosmetica"
+  },
+  {
+    id: "candle-illimo",
+    name: "Velas Aromáticas de Cera de Mango",
+    description: "Vela aromática artesanal de soya con infusión y aroma dulce a mango Kent de Íllimo. Genera calidez y relajación en casa.",
+    price: 32.00,
+    image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&q=80&w=600",
+    category: "Cuidado Personal",
+    producerId: "illimo-cosmetica"
+  },
+  {
+    id: "soap-illimo",
+    name: "Jabón Exfoliante de Mango y Miel",
+    description: "Jabón en barra artesanal con extracto de mango Kent y miel pura silvestre de la zona de Íllimo. Suave exfoliante diario.",
+    price: 15.00,
+    image: "/images/product_mango_soap.png",
+    category: "Cuidado Personal",
+    producerId: "illimo-cosmetica"
+  }
+];
 
 // In-memory fallbacks for serverless environments
 let memoryProducts: Product[] = [...defaultProducts];
