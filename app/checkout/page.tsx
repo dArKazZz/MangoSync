@@ -178,28 +178,13 @@ export default function CheckoutPage() {
         <div className="container mx-auto max-w-5xl">
           
           {/* Cabecera y Pasos de Transacción */}
-          <div className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-6 rounded-3xl shadow-xs border">
-            <div>
-              <span className="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                Pasarela de Compra B2B
-              </span>
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
-                Checkout & Contratación Multifinca
-              </h1>
-            </div>
-            
-            {/* Indicador de pasos */}
-            {step < 3 && (
-              <div className="flex items-center gap-3">
-                <span className={`text-xs font-bold px-3 py-1.5 rounded-full ${step === 1 ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-500"}`}>
-                  1. Ajuste Comercial
-                </span>
-                <ChevronRight className="h-4 w-4 text-slate-350" />
-                <span className={`text-xs font-bold px-3 py-1.5 rounded-full ${step === 2 ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-500"}`}>
-                  2. Contrato y Logística
-                </span>
-              </div>
-            )}
+          <div className="mb-8 bg-white p-6 rounded-3xl shadow-xs border">
+            <span className="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              Pasarela B2B
+            </span>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
+              Orden de Compra
+            </h1>
           </div>
 
           {items.length === 0 && step < 3 ? (
