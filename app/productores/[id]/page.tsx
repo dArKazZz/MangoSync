@@ -261,11 +261,66 @@ export default function ProducerStorefrontPage({ params }: { params: Promise<{ i
               </CardContent>
             </Card>
 
+            {/* Banner de Publicidad Patrocinada (Alquilado) */}
+            <Card className="border border-amber-200/50 shadow-2xs rounded-3xl overflow-hidden bg-amber-50/10">
+              <div className="p-3 bg-amber-500/10 text-amber-800 text-[10px] font-bold uppercase tracking-wider flex justify-between items-center border-b border-amber-200/30">
+                <span>Publicidad Patrocinada</span>
+                <span className="bg-amber-250 text-amber-900 px-1.5 py-0.5 rounded text-[8px] font-black">Espacio Alquilado</span>
+              </div>
+              <CardContent className="p-5 space-y-4">
+                <div className="relative h-32 w-full rounded-2xl overflow-hidden bg-slate-100 border">
+                  <Image
+                    src="https://images.unsplash.com/photo-1605000797439-7571d3cc4a21?auto=format&fit=crop&q=80&w=400"
+                    alt="BioCrec Fertilizantes"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <h4 className="font-extrabold text-slate-800 text-sm">BioCrec Orgánico</h4>
+                  <p className="text-xs text-slate-550 leading-relaxed">
+                    Abono y fertilizante foliar diseñado para optimizar el calibre y floración del Mango Kent. Aprobado para exportación.
+                  </p>
+                </div>
+                <Button 
+                  onClick={() => alert("Simulando redirección a la web del patrocinador BioCrec...")}
+                  className="w-full bg-amber-550 hover:bg-amber-600 text-white font-bold rounded-xl text-xs py-2 h-9 cursor-pointer"
+                >
+                  Ver Catálogo de Insumos
+                </Button>
+              </CardContent>
+            </Card>
+
           </div>
 
           {/* --- COLUMNA DERECHA (PANELES INTERACTIVOS Y TIENDA) --- */}
           <div className="lg:col-span-8 space-y-6">
             
+            {/* Banner de Publicidad Horizontal (Alquilado) */}
+            <div className="bg-emerald-950 text-white rounded-3xl p-6 flex flex-col md:flex-row justify-between items-center gap-6 relative overflow-hidden shadow-xs border border-emerald-800">
+              <div className="absolute top-3 right-4 bg-emerald-800/60 text-emerald-200 text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                Anuncio Patrocinado
+              </div>
+              <div className="space-y-2 relative z-10 max-w-md">
+                <span className="bg-amber-500 text-slate-900 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">
+                  HidroRain Sistemas
+                </span>
+                <h3 className="text-lg font-black leading-tight text-white mt-1">Sistemas de Riego Tecnificado para Resiliencia</h3>
+                <p className="text-emerald-250 text-xs leading-relaxed">
+                  ¿Preparado para el Fenómeno de El Niño? Automatiza el goteo de tus hectáreas de mango Kent con tecnología alemana. Descuentos a cooperativas registradas en MangoSync.
+                </p>
+              </div>
+              <Button 
+                onClick={() => alert("Simulando contacto con patrocinador HidroRain Riego...")}
+                className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black rounded-xl text-xs px-5 py-4.5 h-10 shadow-sm relative z-10 cursor-pointer self-stretch md:self-auto text-center"
+              >
+                Cotizar Proyecto Riego
+              </Button>
+              
+              {/* Decoración abstracta */}
+              <div className="absolute -bottom-10 -right-10 w-44 h-44 bg-emerald-800/20 rounded-full blur-xl" />
+            </div>
+
             {/* Navegación de Pestañas del Perfil */}
             <div className="bg-white p-2 rounded-2xl shadow-2xs border flex gap-2">
               <button
