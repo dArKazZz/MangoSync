@@ -34,11 +34,17 @@ function Products() {
       <div className="container mx-auto px-4 py-4 md:py-6 md:px-8">
         <h1 className="text-3xl font-extrabold text-slate-800 mb-8 tracking-tight">Todos los Productos</h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {allProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        {allProducts.length === 0 ? (
+          <div className="text-center py-20 border border-dashed rounded-3xl text-slate-500 bg-white">
+            No hay productos o ofertas disponibles en este momento.
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {allProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
