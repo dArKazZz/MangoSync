@@ -965,34 +965,7 @@ export default function ProfilePage() {
                   Espacios publicitarios alquilados para proveedores del sector agrícola.
                 </p>
 
-                {/* Banner 1: Fertilizantes BioCrec */}
-                <Card className="border border-amber-200/60 shadow-none rounded-2xl overflow-hidden bg-amber-50/15">
-                  <div className="p-3 bg-amber-500/10 text-amber-900 text-[9px] font-bold tracking-wider flex justify-between items-center border-b border-amber-200/20 uppercase">
-                    <span>Nutrición Foliar</span>
-                    <span className="bg-amber-500 text-white px-1.5 py-0.5 rounded text-[7px] font-black">Alquilado</span>
-                  </div>
-                  <CardContent className="p-4 space-y-3">
-                    <div className="relative h-24 w-full rounded-xl overflow-hidden bg-slate-150 border">
-                      <img
-                        src="https://images.unsplash.com/photo-1605000797439-7571d3cc4a21?auto=format&fit=crop&q=80&w=300"
-                        alt="BioCrec Fertilizantes"
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <h4 className="font-extrabold text-slate-850 text-xs">BioCrec Mango Kent</h4>
-                      <p className="text-[11px] text-slate-500 leading-relaxed">
-                        Abono orgánico certificado para uniformizar la floración y aumentar calibre.
-                      </p>
-                    </div>
-                    <Button 
-                      onClick={() => alert("Redirigiendo a tienda aliada BioCrec...")}
-                      className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl text-[10px] py-1.5 h-8 cursor-pointer border-none"
-                    >
-                      Cotizar Insumos
-                    </Button>
-                  </CardContent>
-                </Card>
+
 
                 {/* Banner 2: HidroRain Riego */}
                 <Card className="border border-emerald-200/60 shadow-none rounded-2xl overflow-hidden bg-emerald-50/15">
