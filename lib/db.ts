@@ -183,7 +183,7 @@ const defaultProducts: Product[] = [
     id: "jaba-kent-felipe",
     name: "Jaba de Mango Kent Premium (20 Kg)",
     description: "Jaba plástica cosechera con 20 Kg de mango Kent seleccionado en Finca San José (Motupe). Fruta dulce, carnosa y sin fibra, perfecta para exportación.",
-    price: 99.90,
+    price: 28.50,
     image: "/images/product_kent_box.jpg",
     category: "Fruta Fresca",
     producerId: "motupe-felipe"
@@ -192,7 +192,7 @@ const defaultProducts: Product[] = [
     id: "jaba-kent-olmos",
     name: "Jaba de Mango Kent Premium (20 Kg)",
     description: "Jaba cosechera de 20 Kg de mango Kent provisto por la Cooperativa Olmos. Fruto con excelente calibre comercial y bajo estricto control fitosanitario.",
-    price: 94.50,
+    price: 26.00,
     image: "/images/product_kent_box.jpg",
     category: "Fruta Fresca",
     producerId: "olmos-coop"
@@ -201,10 +201,55 @@ const defaultProducts: Product[] = [
     id: "jaba-kent-jayanca",
     name: "Jaba de Mango Kent Premium (20 Kg)",
     description: "Jaba cosechera de 20 Kg de mango Kent de cultivo orgánico en Jayanca. Directo de chacra, fresco y seleccionado a mano.",
-    price: 89.90,
+    price: 24.50,
     image: "/images/product_kent_box.jpg",
     category: "Fruta Fresca",
     producerId: "jayanca-organico"
+  },
+  {
+    id: "jaba-kent-felipe-estandar",
+    name: "Jaba de Mango Kent Estándar (20 Kg)",
+    description: "Jaba de mango Kent calibre comercial cosechado en Motupe. Fruta de buen sabor y frescura directa.",
+    price: 23.90,
+    image: "/images/product_kent_box.jpg",
+    category: "Fruta Fresca",
+    producerId: "motupe-felipe"
+  },
+  {
+    id: "jaba-kent-olmos-seleccion",
+    name: "Jaba de Mango Kent Selección (20 Kg)",
+    description: "Jaba cosechera de 20 Kg con mangos Kent de calibre grande seleccionados por la Cooperativa Olmos.",
+    price: 29.00,
+    image: "/images/product_kent_box.jpg",
+    category: "Fruta Fresca",
+    producerId: "olmos-coop"
+  },
+  {
+    id: "jaba-kent-jayanca-maduro",
+    name: "Jaba de Mango Kent Maduro (20 Kg)",
+    description: "Jaba de 20 Kg de mango Kent orgánico maduro de Jayanca. Sabor extra dulce, listo para consumo inmediato o procesamiento.",
+    price: 21.50,
+    image: "/images/product_kent_box.jpg",
+    category: "Fruta Fresca",
+    producerId: "jayanca-organico"
+  },
+  {
+    id: "jaba-kent-illimo-madre",
+    name: "Jaba de Mango Kent Calidad Madre (20 Kg)",
+    description: "Jaba cosechera de 20 Kg de mango Kent producido de forma agroecológica en Íllimo. Excelente dulzura natural.",
+    price: 22.00,
+    image: "/images/product_kent_box.jpg",
+    category: "Fruta Fresca",
+    producerId: "illimo-cosmetica"
+  },
+  {
+    id: "jaba-kent-felipe-pequeno",
+    name: "Jaba de Mango Kent Segunda (20 Kg)",
+    description: "Jaba cosechera con mangos Kent de calibre mediano de Motupe. Fruta de excelente dulzura a un precio inmejorable.",
+    price: 20.00,
+    image: "/images/product_kent_box.jpg",
+    category: "Fruta Fresca",
+    producerId: "motupe-felipe"
   },
 
   // --- SUBPRODUCTOS (MÚLTIPLES PRODUCTORES) ---
