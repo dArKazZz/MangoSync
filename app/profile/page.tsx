@@ -267,53 +267,27 @@ export default function ProfilePage() {
       return {
         name: "Productor",
         emoji: "🌿",
-        commission: 8,
+        commission: 9,
         colorClass: "from-emerald-400 to-emerald-600 bg-emerald-50 border-emerald-200 text-emerald-700",
         badgeClass: "bg-emerald-100 text-emerald-800 border border-emerald-200",
         perk: "Capacitación agrícola continua y talleres de cultivo sostenible gratuitos.",
-        nextLevel: "Avanzado",
-        nextEmoji: "🌳",
-        nextThreshold: 1000,
-        prevThreshold: 500,
-      };
-    } else if (cajas < 2000) {
-      return {
-        name: "Avanzado",
-        emoji: "🌳",
-        commission: 6,
-        colorClass: "from-teal-400 to-teal-600 bg-teal-50 border-teal-200 text-teal-700",
-        badgeClass: "bg-teal-100 text-teal-800 border border-teal-200",
-        perk: "Asesoría técnica especializada personalizada para mejorar tus cosechas.",
-        nextLevel: "Premium",
-        nextEmoji: "🥭",
-        nextThreshold: 2000,
-        prevThreshold: 1000,
-      };
-    } else if (cajas < 3000) {
-      return {
-        name: "Premium",
-        emoji: "🥭",
-        commission: 5,
-        colorClass: "from-orange-400 to-orange-600 bg-orange-50 border-orange-200 text-orange-700",
-        badgeClass: "bg-orange-100 text-orange-800 border border-orange-200",
-        perk: "Beneficios de prioridad logística, envíos express y distribución preferencial.",
         nextLevel: "Élite",
         nextEmoji: "👑",
-        nextThreshold: 3000,
-        prevThreshold: 2000,
+        nextThreshold: 1000,
+        prevThreshold: 500,
       };
     } else {
       return {
         name: "Élite",
         emoji: "👑",
-        commission: 4,
+        commission: 8,
         colorClass: "from-yellow-400 to-yellow-600 bg-yellow-50 border-yellow-200 text-yellow-700",
         badgeClass: "bg-yellow-100 text-yellow-800 border border-yellow-200",
-        perk: "Acceso completo a bonos económicos anuales y premios de temporada.",
+        perk: "Beneficios de prioridad logística, envíos express y distribución preferencial.",
         nextLevel: null,
         nextEmoji: null,
         nextThreshold: null,
-        prevThreshold: 3000,
+        prevThreshold: 1000,
       };
     }
   };
@@ -702,13 +676,13 @@ export default function ProfilePage() {
                             <div className="p-3 bg-amber-50/50 rounded-xl border border-amber-100/50 text-amber-800 text-xs font-semibold flex items-center gap-2">
                               <Zap className="h-4 w-4 shrink-0 text-amber-500 animate-pulse" />
                               <span>
-                                ¡Te faltan <strong>{levelInfo.nextThreshold - cajasVendidas} cajas</strong> para alcanzar el <strong>Nivel {levelInfo.nextLevel} {levelInfo.nextEmoji}</strong> y reducir tu comisión a <strong>{levelInfo.commission - 2}%</strong>!
+                                ¡Te faltan <strong>{levelInfo.nextThreshold - cajasVendidas} cajas</strong> para alcanzar el <strong>Nivel {levelInfo.nextLevel} {levelInfo.nextEmoji}</strong> y reducir tu comisión a <strong>{levelInfo.commission - 1}%</strong>!
                               </span>
                             </div>
                           ) : (
                             <div className="p-3 bg-yellow-50 rounded-xl border border-yellow-100 text-yellow-800 text-xs font-semibold flex items-center gap-2">
                               <Trophy className="h-4.5 w-4.5 shrink-0 text-yellow-500 fill-yellow-500/10" />
-                              <span>¡Felicidades! Has alcanzado el nivel de ventas máximo de agricultor. Tienes la comisión preferencial del 4%.</span>
+                              <span>¡Felicidades! Has alcanzado el nivel de ventas máximo de agricultor. Tienes la comisión preferencial del 8%.</span>
                             </div>
                           )}
                         </div>
@@ -730,29 +704,29 @@ export default function ProfilePage() {
                             id="range-cajas"
                             type="range"
                             min="0"
-                            max="4000"
+                            max="2000"
                             step="25"
                             value={cajasVendidas}
                             onChange={(e) => setCajasVendidas(parseInt(e.target.value))}
                             className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-emerald-600"
                           />
                           <div className="flex justify-between text-slate-400 text-xxs font-bold uppercase tracking-wider">
-                            <span>0 Cajas</span>
-                            <span>2000 (Premium)</span>
-                            <span>4000 (Elite)</span>
+                            <span>0 (Semilla)</span>
+                            <span>500 (Productor)</span>
+                            <span>1000+ (Élite)</span>
                           </div>
                         </div>
 
                         <div className="grid grid-cols-2 gap-2">
                           <Button
-                            onClick={() => setCajasVendidas((prev) => Math.min(prev + 100, 4000))}
+                            onClick={() => setCajasVendidas((prev) => Math.min(prev + 100, 2000))}
                             variant="outline"
                             className="rounded-xl border-slate-200 font-semibold text-xs py-5 cursor-pointer"
                           >
                             +100 Cajas
                           </Button>
                           <Button
-                            onClick={() => setCajasVendidas((prev) => Math.min(prev + 500, 4000))}
+                            onClick={() => setCajasVendidas((prev) => Math.min(prev + 500, 2000))}
                             variant="outline"
                             className="rounded-xl border-slate-200 font-semibold text-xs py-5 cursor-pointer"
                           >
@@ -780,13 +754,11 @@ export default function ProfilePage() {
                       <CardDescription>Plan de crecimiento de comisiones decrecientes de MangoSync.</CardDescription>
                     </CardHeader>
                     <CardContent className="p-6 pt-0">
-                      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 relative">
                         {[
                           { name: "Semilla", rate: "10%", cap: "0+", emoji: "🌱", color: "border-amber-250 bg-amber-50/30 text-amber-800" },
-                          { name: "Productor", rate: "8%", cap: "500+", emoji: "🌿", color: "border-emerald-250 bg-emerald-50/30 text-emerald-800" },
-                          { name: "Avanzado", rate: "6%", cap: "1000+", emoji: "🌳", color: "border-teal-250 bg-teal-50/30 text-teal-800" },
-                          { name: "Premium", rate: "5%", cap: "2000+", emoji: "🥭", color: "border-orange-250 bg-orange-50/30 text-orange-800" },
-                          { name: "Élite", rate: "4%", cap: "3000+", emoji: "👑", color: "border-yellow-250 bg-yellow-50/30 text-yellow-800" },
+                          { name: "Productor", rate: "9%", cap: "500+", emoji: "🌿", color: "border-emerald-250 bg-emerald-50/30 text-emerald-800" },
+                          { name: "Élite", rate: "8%", cap: "1000+", emoji: "👑", color: "border-yellow-250 bg-yellow-50/30 text-yellow-800" },
                         ].map((step, index) => {
                           const isActive = levelInfo.name === step.name;
                           const salesThreshold = parseInt(step.cap);

@@ -587,7 +587,7 @@ export default function CheckoutPage() {
                             if (!p) return null;
                             // Encontrar info de nivel
                             const baseComm = 10;
-                            const currentComm = p.level === "Semilla" ? 10 : p.level === "Productor" ? 8 : p.level === "Avanzado" ? 6 : p.level === "Premium" ? 5 : 4;
+                            const currentComm = p.level === "Semilla" ? 10 : p.level === "Productor" ? 9 : 8;
                             const price = negotiatedPrices[item.id] !== undefined ? negotiatedPrices[item.id] : item.price;
                             const commissionSaved = (price * (baseComm - currentComm)) / 100;
 
