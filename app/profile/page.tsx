@@ -1001,11 +1001,10 @@ export default function ProfilePage() {
                   </div>
                   <CardContent className="p-4 space-y-3">
                     <div className="relative h-24 w-full rounded-xl overflow-hidden bg-slate-150 border">
-                      <Image
+                      <img
                         src="https://images.unsplash.com/photo-1605000797439-7571d3cc4a21?auto=format&fit=crop&q=80&w=300"
                         alt="BioCrec Fertilizantes"
-                        fill
-                        className="object-cover"
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                     </div>
                     <div className="space-y-1">
@@ -1031,11 +1030,10 @@ export default function ProfilePage() {
                   </div>
                   <CardContent className="p-4 space-y-3">
                     <div className="relative h-24 w-full rounded-xl overflow-hidden bg-slate-150 border">
-                      <Image
+                      <img
                         src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&q=80&w=300"
                         alt="HidroRain Riego"
-                        fill
-                        className="object-cover"
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                     </div>
                     <div className="space-y-1">
@@ -1061,11 +1059,10 @@ export default function ProfilePage() {
                   </div>
                   <CardContent className="p-4 space-y-3">
                     <div className="relative h-24 w-full rounded-xl overflow-hidden bg-slate-150 border">
-                      <Image
+                      <img
                         src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&q=80&w=300"
                         alt="Jabas Plásticas"
-                        fill
-                        className="object-cover"
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                     </div>
                     <div className="space-y-1">

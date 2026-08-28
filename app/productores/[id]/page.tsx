@@ -115,12 +115,10 @@ export default function ProducerStorefrontPage({ params }: { params: Promise<{ i
         
         {/* --- BANNER DE PORTADA DE LA FINCA --- */}
         <div className="relative h-[250px] sm:h-[320px] w-full overflow-hidden bg-slate-900">
-          <Image
+          <img
             src={producer.bannerImage}
             alt={`Chacra de ${producer.name}`}
-            fill
-            priority
-            className="object-cover opacity-90"
+            className="absolute inset-0 w-full h-full object-cover opacity-90"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent" />
           
@@ -141,11 +139,10 @@ export default function ProducerStorefrontPage({ params }: { params: Promise<{ i
             <div className="flex flex-col sm:flex-row items-start sm:items-end gap-4">
               {/* Foto de Perfil */}
               <div className="relative h-28 w-28 sm:h-32 sm:w-32 rounded-3xl border-4 border-white overflow-hidden shadow-md bg-slate-200 flex-shrink-0">
-                <Image
+                <img
                   src={producer.image}
                   alt={producer.name}
-                  fill
-                  className="object-cover"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
 
@@ -249,11 +246,10 @@ export default function ProducerStorefrontPage({ params }: { params: Promise<{ i
                 <div className="grid grid-cols-2 gap-3">
                   {producer.gallery.map((imgUrl, idx) => (
                     <div key={idx} className="relative h-28 rounded-2xl overflow-hidden bg-slate-100 border">
-                      <Image
+                      <img
                         src={imgUrl}
                         alt={`Lote de producción ${idx + 1}`}
-                        fill
-                        className="object-cover hover:scale-105 transition-transform duration-300"
+                        className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   ))}
@@ -307,11 +303,10 @@ export default function ProducerStorefrontPage({ params }: { params: Promise<{ i
                     {/* Encabezado Post */}
                     <div className="flex items-center gap-3 mb-4">
                       <div className="relative h-10 w-10 rounded-xl overflow-hidden bg-slate-200 flex-shrink-0">
-                        <Image
+                        <img
                           src={producer.image}
                           alt={producer.name}
-                          fill
-                          className="object-cover"
+                          className="absolute inset-0 w-full h-full object-cover"
                         />
                       </div>
                       <div>

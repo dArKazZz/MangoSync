@@ -58,11 +58,10 @@ export default async function SingleProductPage({
             
             {/* Imagen del Producto */}
             <div className="relative aspect-square w-full rounded-2xl overflow-hidden border border-slate-100 bg-slate-50">
-              <Image
+              <img
                 src={product.image || "/placeholder/400x400.svg"}
                 alt={product.name}
-                fill
-                className="object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
 
@@ -149,11 +148,10 @@ export default async function SingleProductPage({
                             className="hover:text-emerald-700 hover:underline flex items-center gap-2"
                           >
                             <div className="relative h-7 w-7 rounded-lg overflow-hidden bg-slate-100">
-                              <Image 
+                              <img 
                                 src={offerProducer.image} 
                                 alt={offerProducer.name} 
-                                fill 
-                                className="object-cover" 
+                                className="absolute inset-0 w-full h-full object-cover" 
                               />
                             </div>
                             <span>{offerProducer.name}</span>

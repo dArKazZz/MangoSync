@@ -124,12 +124,10 @@ export default function NoticiasDetailPage({ params }: { params: Promise<{ id: s
         
         {/* --- PORTADA DEL ARTÍCULO --- */}
         <div className="relative h-[250px] sm:h-[400px] w-full bg-slate-900">
-          <Image
+          <img
             src={article.image}
             alt={article.title}
-            fill
-            priority
-            className="object-cover opacity-85"
+            className="absolute inset-0 w-full h-full object-cover opacity-85"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent" />
           

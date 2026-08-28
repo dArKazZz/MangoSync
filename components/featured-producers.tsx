@@ -65,11 +65,10 @@ export default function FeaturedProducers() {
             <Card key={producer.id} className="border border-slate-100 shadow-sm rounded-3xl overflow-hidden hover:shadow-md hover:border-emerald-500/30 transition-all flex flex-col h-full bg-white group">
               {/* Foto de Portada / Campo */}
               <div className="relative h-44 w-full overflow-hidden bg-slate-100">
-                <Image
+                <img
                   src={producer.bannerImage}
                   alt={`Finca de ${producer.name}`}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 
                 {/* Sello SENASA */}
@@ -86,11 +85,10 @@ export default function FeaturedProducers() {
                   {/* Foto de Perfil Flotante y Nombre */}
                   <div className="flex items-start gap-3 -mt-10 mb-3 relative z-10">
                     <div className="relative h-14 w-14 rounded-2xl border-4 border-white overflow-hidden shadow-xs bg-slate-200">
-                      <Image
+                      <img
                         src={producer.image}
                         alt={producer.name}
-                        fill
-                        className="object-cover"
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                     </div>
                     <div className="pt-8">

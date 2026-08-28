@@ -81,11 +81,10 @@ export default function NoticiasPage() {
             <Card className="border border-slate-100 shadow-sm rounded-3xl overflow-hidden bg-white mb-12 group hover:shadow-md transition-shadow">
               <div className="grid grid-cols-1 lg:grid-cols-12">
                 <div className="relative h-64 sm:h-96 lg:h-auto lg:col-span-7 bg-slate-100">
-                  <Image
+                  <img
                     src={featuredArticle.image}
                     alt={featuredArticle.title}
-                    fill
-                    className="object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                   <span className="absolute top-4 left-4 bg-rose-600 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
                     <ShieldAlert className="h-3.5 w-3.5 fill-white/10" /> Alerta Climática
@@ -141,11 +140,10 @@ export default function NoticiasPage() {
                 <Card key={article.id} className="border border-slate-100 shadow-sm rounded-3xl overflow-hidden bg-white flex flex-col justify-between group hover:shadow-md hover:border-emerald-500/20 transition-all">
                   <div>
                     <div className="relative h-48 w-full bg-slate-100">
-                      <Image
+                      <img
                         src={article.image}
                         alt={article.title}
-                        fill
-                        className="object-cover"
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                     </div>
 
